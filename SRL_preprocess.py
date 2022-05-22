@@ -1,21 +1,7 @@
-import numpy as np
 import json
 import os
 
 from allennlp.predictors import Predictor
-from allennlp.common.file_utils import cached_path
-from allennlp.data.dataset_readers.dataset_reader import DatasetReader
-
-
-def cutstr(str):
-    final = []
-    result = str.split(',')
-
-    for i in result:
-        m = i.split('.')
-        final += m
-
-    return final
 
 
 def get_predictor():
@@ -37,10 +23,7 @@ if not os.path.exists(target_dir):
 
 predictor = get_predictor()
 
-print("enter 1")
-
 with open(preprocessed_data_path, "w") as write_file:
-    print("enter 2")
     # 1.load raw data
     with open(raw_data_path, 'r') as entailment_file:
 
